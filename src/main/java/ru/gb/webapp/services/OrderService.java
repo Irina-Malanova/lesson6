@@ -47,4 +47,8 @@ public class OrderService {
     public List<Orders> findOrdersForCustomerByCustomerId(long customerId) {
         return orderDao.findOrdersForCustomerByCustomerId(customerId);
     }
+
+    public List<Customer> showCustomerListForProduct(long productId){
+        return orderDao.findCustomerListByProductId(productId);
+    }
 }

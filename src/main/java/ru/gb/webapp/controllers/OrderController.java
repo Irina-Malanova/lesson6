@@ -59,4 +59,11 @@ public class OrderController {
 
         return "redirect:/customer/show_all";
     }
+
+    @GetMapping(value = "/showCustomerListForProduct/{productId}")
+    public String showCustomerListForProduct(Model model, @PathVariable long productId) {
+
+        model.addAttribute("customerList", orderService.showCustomerListForProduct(productId));
+        return "customerList";
+    }
 }

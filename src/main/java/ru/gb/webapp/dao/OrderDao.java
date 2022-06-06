@@ -74,4 +74,14 @@ public class OrderDao {
         transaction.commit();
         return (ordersList);
     }
+
+    public List<Customer> findCustomerListByProductId(Long productId){
+        Session session = getSession();
+        Transaction transaction = session.beginTransaction();
+
+        List<Customer> customerList = session.createQuery("SELECT a.customer FROM Order a where a.product.id=" + productId,
+                Customer.class).getResultList();
+        transaction.commit();
+        return (customerList);
+    }
 }
